@@ -562,10 +562,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-textual-app-srcvirtufin_tuiapppy" class="md-nav__link">
+  <a href="#1-app-srcvirtufin_tuiapppy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Textual App (src/virtufin_tui/app.py)
+        1. App (src/virtufin_tui/app.py)
       
     </span>
   </a>
@@ -573,10 +573,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-config-loader-srcvirtufin_tuiconfigpy" class="md-nav__link">
+  <a href="#2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Config loader (src/virtufin_tui/config.py)
+        2. Dashboard dispatcher (src/virtufin_tui/screens/dashboard.py)
       
     </span>
   </a>
@@ -584,10 +584,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-client-wrapper-srcvirtufin_tuiclientpy-planned" class="md-nav__link">
+  <a href="#3-data-store-srcvirtufin_tuistorepy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Client wrapper (src/virtufin_tui/client.py — planned)
+        3. Data store (src/virtufin_tui/store.py)
       
     </span>
   </a>
@@ -595,10 +595,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-screens-srcvirtufin_tuiscreenspy" class="md-nav__link">
+  <a href="#4-config-loader-srcvirtufin_tuiconfigpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Screens (src/virtufin_tui/screens/*.py)
+        4. Config loader (src/virtufin_tui/config.py)
       
     </span>
   </a>
@@ -606,10 +606,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-widgets-srcvirtufin_tuiwidgetspy" class="md-nav__link">
+  <a href="#5-client-wrapper-srcvirtufin_tuiclientpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Widgets (src/virtufin_tui/widgets/*.py)
+        5. Client wrapper (src/virtufin_tui/client.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-per-page-screens-srcvirtufin_tuiscreenspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Per-page Screens (src/virtufin_tui/screens/*.py)
       
     </span>
   </a>
@@ -712,10 +723,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-textual-app-srcvirtufin_tuiapppy" class="md-nav__link">
+  <a href="#1-app-srcvirtufin_tuiapppy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Textual App (src/virtufin_tui/app.py)
+        1. App (src/virtufin_tui/app.py)
       
     </span>
   </a>
@@ -723,10 +734,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-config-loader-srcvirtufin_tuiconfigpy" class="md-nav__link">
+  <a href="#2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Config loader (src/virtufin_tui/config.py)
+        2. Dashboard dispatcher (src/virtufin_tui/screens/dashboard.py)
       
     </span>
   </a>
@@ -734,10 +745,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-client-wrapper-srcvirtufin_tuiclientpy-planned" class="md-nav__link">
+  <a href="#3-data-store-srcvirtufin_tuistorepy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Client wrapper (src/virtufin_tui/client.py — planned)
+        3. Data store (src/virtufin_tui/store.py)
       
     </span>
   </a>
@@ -745,10 +756,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-screens-srcvirtufin_tuiscreenspy" class="md-nav__link">
+  <a href="#4-config-loader-srcvirtufin_tuiconfigpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Screens (src/virtufin_tui/screens/*.py)
+        4. Config loader (src/virtufin_tui/config.py)
       
     </span>
   </a>
@@ -756,10 +767,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-widgets-srcvirtufin_tuiwidgetspy" class="md-nav__link">
+  <a href="#5-client-wrapper-srcvirtufin_tuiclientpy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Widgets (src/virtufin_tui/widgets/*.py)
+        5. Client wrapper (src/virtufin_tui/client.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-per-page-screens-srcvirtufin_tuiscreenspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Per-page Screens (src/virtufin_tui/screens/*.py)
       
     </span>
   </a>
@@ -825,60 +847,144 @@
 <h2 id="data-flow">Data flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
     subgraph TUI["virtufin-tui (your laptop)"]
-        TA["Textual App"]
-        subgraph PC["virtufin.api Python client"]
-            T["Polling +&lt;br/&gt;Subscribe background workers"]
+        DA["Dashboard dispatcher"]
+        subgraph ST["Shared DataPump"]
+            W["WorkersStore"]
+            C["ConnsStore"]
+            E["EventsStore"]
         end
-        TA --&gt; PC
+        DA --&gt; ST
+
+        subgraph PAGES["Per-page Screens"]
+            WP["WorkersPage (1)"]
+            EP["EventsPage (2)"]
+            CP["ConnectionsPage (3)"]
+        end
+        WP --&gt; W
+        EP --&gt; E
+        CP --&gt; C
     end
+
+    subgraph BG["Background tasks"]
+        P["Poller (2s interval)"]
+        S["Subscriber (Gateway.Subscribe)"]
+    end
+    P --&gt; W
+    P --&gt; C
+    S --&gt; E
 
     API["virtufin-api (cluster)&lt;br/&gt;Gateway.* RPCs&lt;br/&gt;State.* RPCs&lt;br/&gt;Pubsub.* RPCs&lt;br/&gt;(talks to Dapr pubsub + state)"]
 
-    TUI -- "gRPC :5002" --&gt; API</code></pre>
+    TUI -- "gRPC :5002" --&gt; BG
+    BG -- "gRPC :5002" --&gt; API</code></pre>
 <h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
-<h3 id="1-textual-app-srcvirtufin_tuiapppy">1. Textual App (<code>src/virtufin_tui/app.py</code>)<a class="headerlink" href="#1-textual-app-srcvirtufin_tuiapppy" title="Permanent link">&para;</a></h3>
-<p>The root <code>App</code> subclass. Holds a single <code>TuiConfig</code> and binds the global
-keybindings. The default <code>compose()</code> produces a placeholder body; subsequent tasks
-add the 3-panel dashboard, detail popovers, and the event stream widget.</p>
-<h3 id="2-config-loader-srcvirtufin_tuiconfigpy">2. Config loader (<code>src/virtufin_tui/config.py</code>)<a class="headerlink" href="#2-config-loader-srcvirtufin_tuiconfigpy" title="Permanent link">&para;</a></h3>
-<p>Reads <code>contexts.toml</code> from the OS-appropriate user config path
-(<code>platformdirs.user_config_dir</code>). Applies <code>VIRTUFIN_TUI_API_HOST</code> /
-<code>VIRTUFIN_TUI_API_PORT</code> / <code>VIRTUFIN_TUI_CONTEXT</code> env-var overrides. Returns a
-<code>TuiConfig</code> with the list of contexts and the active one.</p>
-<h3 id="3-client-wrapper-srcvirtufin_tuiclientpy-planned">3. Client wrapper (<code>src/virtufin_tui/client.py</code> — planned)<a class="headerlink" href="#3-client-wrapper-srcvirtufin_tuiclientpy-planned" title="Permanent link">&para;</a></h3>
+<h3 id="1-app-srcvirtufin_tuiapppy">1. App (<code>src/virtufin_tui/app.py</code>)<a class="headerlink" href="#1-app-srcvirtufin_tuiapppy" title="Permanent link">&para;</a></h3>
+<p>The root <code>App</code> subclass. Holds a single <code>TuiConfig</code>, connects to the active
+context, and pushes the <code>Dashboard</code> dispatcher. Global keybindings: <code>q</code> quit,
+<code>?</code> help, <code>1/2/3</code> switch page.</p>
+<h3 id="2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy">2. Dashboard dispatcher (<code>src/virtufin_tui/screens/dashboard.py</code>)<a class="headerlink" href="#2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy" title="Permanent link">&para;</a></h3>
+<p>A thin <code>Screen</code> wrapper. Owns the <code>DataPump</code> (poller + subscriber) and routes
+the <code>1/2/3</code> keybindings to the matching per-page Screen. Page state is
+remembered across context switches.</p>
+<h3 id="3-data-store-srcvirtufin_tuistorepy">3. Data store (<code>src/virtufin_tui/store.py</code>)<a class="headerlink" href="#3-data-store-srcvirtufin_tuistorepy" title="Permanent link">&para;</a></h3>
+<p>Three reactive containers populated by the <code>DataPump</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Store</th>
+<th>Source</th>
+<th>Refresh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WorkersStore</code></td>
+<td><code>client.list_workers()</code></td>
+<td>2 s polling</td>
+</tr>
+<tr>
+<td><code>ConnsStore</code></td>
+<td><code>client.list_connections()</code></td>
+<td>2 s polling</td>
+</tr>
+<tr>
+<td><code>EventsStore</code></td>
+<td><code>Gateway.Subscribe</code> server-streaming</td>
+<td>Push, unbounded → bounded via <code>append</code>, max 500 entries</td>
+</tr>
+</tbody>
+</table>
+<p>Per-page Screens subscribe to their store and re-render on each update. The
+<code>DataPump</code> survives page switches; hot context switching stops the old pump,
+re-creates the gRPC channel, and starts a fresh pump.</p>
+<h3 id="4-config-loader-srcvirtufin_tuiconfigpy">4. Config loader (<code>src/virtufin_tui/config.py</code>)<a class="headerlink" href="#4-config-loader-srcvirtufin_tuiconfigpy" title="Permanent link">&para;</a></h3>
+<p>Reads <code>contexts.toml</code> from <code>~/.config/virtufin-tui/</code> (XDG-aware via
+<code>$XDG_CONFIG_HOME</code>). Applies <code>VIRTUFIN_TUI_API_HOST</code>/<code>VIRTUFIN_TUI_API_PORT</code>/
+<code>VIRTUFIN_TUI_CONTEXT</code> env-var overrides. Returns a <code>TuiConfig</code> with the list
+of contexts and the active one.</p>
+<h3 id="5-client-wrapper-srcvirtufin_tuiclientpy">5. Client wrapper (<code>src/virtufin_tui/client.py</code>)<a class="headerlink" href="#5-client-wrapper-srcvirtufin_tuiclientpy" title="Permanent link">&para;</a></h3>
 <p>Thin async wrapper around <code>virtufin.api.client.ApiClient</code> that exposes the
 operations the TUI needs as plain async methods (no Textual dependencies). This
-is what the screens call. Lets the screens be tested with stub clients.</p>
-<h3 id="4-screens-srcvirtufin_tuiscreenspy">4. Screens (<code>src/virtufin_tui/screens/*.py</code>)<a class="headerlink" href="#4-screens-srcvirtufin_tuiscreenspy" title="Permanent link">&para;</a></h3>
-<p>Each screen is a <code>Textual.Screen</code> subclass. The dashboard is the default; the
-contexts picker is pushed when the user presses <code>c</code>. Detail popovers are
-pushed modally.</p>
-<h3 id="5-widgets-srcvirtufin_tuiwidgetspy">5. Widgets (<code>src/virtufin_tui/widgets/*.py</code>)<a class="headerlink" href="#5-widgets-srcvirtufin_tuiwidgetspy" title="Permanent link">&para;</a></h3>
-<p><code>DataTable</code>-backed widgets for the workers and connections panels, and a
-<code>RichLog</code>-backed widget for the event stream. All widgets are pure
-presentational; they take their data from a <code>DataSource</code> injected by the parent
-screen.</p>
+is what the pages call for CRUD (set-tag, start, stop, delete, etc.).</p>
+<h3 id="6-per-page-screens-srcvirtufin_tuiscreenspy">6. Per-page Screens (<code>src/virtufin_tui/screens/*.py</code>)<a class="headerlink" href="#6-per-page-screens-srcvirtufin_tuiscreenspy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>File</th>
+<th>Keybindings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workers page (1)</td>
+<td><code>workers_page.py</code></td>
+<td><code>r</code> refresh, <code>Enter</code> detail, <code>a</code> action modal</td>
+</tr>
+<tr>
+<td>Events page (2)</td>
+<td><code>events_page.py</code></td>
+<td><code>space</code> pause/resume, <code>c</code> clear, <code>/</code> filter</td>
+</tr>
+<tr>
+<td>Connections page (3)</td>
+<td><code>connections_page.py</code></td>
+<td><code>r</code> refresh, <code>Enter</code> detail, <code>a</code> action modal</td>
+</tr>
+<tr>
+<td>Contexts picker</td>
+<td><code>contexts_picker.py</code></td>
+<td>Push via <code>c</code></td>
+</tr>
+</tbody>
+</table>
+<p>All per-page Screens are <code>Screen</code> subclasses (not modals). Detail popovers
+(<code>WorkerDetail</code>, <code>ConnectionDetail</code>) and the action modal are pushed on top of
+the active page. The service browser is pushed via <code>b</code>.</p>
 <h2 id="real-time-updates">Real-time updates<a class="headerlink" href="#real-time-updates" title="Permanent link">&para;</a></h2>
-<p>The TUI uses two real-time paths:</p>
+<p>The TUI uses two real-time paths, both running inside the <code>DataPump</code> at the
+Dashboard level:</p>
 <ol>
 <li>
-<p><strong>Polling (state lists)</strong> — <code>ListWorkers</code>, <code>ListConnections</code>, and
-   <code>GetAllState</code> are called on a configurable interval (default 2s). The interval
-   is set on the <code>App.config.refresh_interval_sec</code> attribute and can be changed at
-   runtime with <code>Ctrl+R</code> to force-refresh.</p>
+<p><strong>Polling (state lists)</strong> — <code>ListWorkers</code> and <code>ListConnections</code> every 2 s
+   (configurable). Each poll writes into <code>WorkersStore</code> / <code>ConnsStore</code>, which
+   triggers a re-render in the active per-page Screen.</p>
 </li>
 <li>
 <p><strong>Streaming (events)</strong> — <code>Gateway.Subscribe(services, topics, event_types)</code>
-   is opened once at context start and consumed in a background task. Events
-   append to a <code>RichLog</code> widget. On context switch the old subscription is
-   cancelled and a new one is opened.</p>
+   is opened once at context connect and consumed in a background task. Events
+   append to the <code>EventsStore</code> (bounded deque, max 500 entries). The Events
+   page subscribes to the store and re-renders the <code>RichLog</code> on each append.</p>
 </li>
 </ol>
+<p>On context switch (<code>c</code> → picker), the old DataPump is stopped cleanly, the
+gRPC channel is replaced, and a new DataPump is started.</p>
 <h2 id="cancellation-reconnect">Cancellation / reconnect<a class="headerlink" href="#cancellation-reconnect" title="Permanent link">&para;</a></h2>
-<p>gRPC channels are wrapped in a <code>grpc.aio.insecure_channel</code> (or
-<code>secure_channel</code> if <code>tls: true</code>). On disconnect, the TUI retries with
-exponential backoff (1s, 2s, 4s, 8s, 16s, 30s cap) and shows a
-"reconnecting..." status. In-flight poll tasks are cancelled on reconnect.</p>
+<p>gRPC channels are wrapped in <code>grpc.aio.insecure_channel</code> (or <code>secure_channel</code>
+if <code>tls: true</code>). The subscriber task retries with exponential backoff
+(1s, 2s, 4s, 8s, 16s, 30s cap) on disconnect. Events are queued in the
+<code>EventsStore</code> and are <strong>not</strong> replayed on reconnect. The store persists across
+page switches and is cleared only on context switch.</p>
 <h2 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">&para;</a></h2>
 <ol>
 <li><code>virtufin-tui</code> is invoked (from <code>uvx</code>, <code>pip install</code>, or local).</li>
@@ -886,8 +992,11 @@ exponential backoff (1s, 2s, 4s, 8s, 16s, 30s cap) and shows a
 <li><code>config.load_config()</code> reads <code>contexts.toml</code> and applies env-var overrides.</li>
 <li>If no contexts configured, the TUI opens the contexts picker and prompts the
    user to add one. On save, the TUI restarts with the new active context.</li>
-<li>Otherwise, the TUI opens the dashboard for the active context.</li>
-<li>On <code>q</code> (quit), the TUI closes the gRPC channel, cancels background tasks,
+<li>Otherwise, <code>VirtufinTuiApp.on_mount()</code> creates a <code>TuiClient</code>, connects to
+   the API, pushes the <code>Dashboard</code> dispatcher, and starts the DataPump.</li>
+<li>The Dashboard pushes the default page (<code>WorkersPage</code>) via <code>push_screen</code>.
+   Keybindings <code>1/2/3</code> switch pages.</li>
+<li>On <code>q</code> (quit), the TUI cancels background tasks, closes the gRPC channel,
    and exits 0.</li>
 </ol>
 
