@@ -823,27 +823,18 @@
 
 <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
 <h2 id="data-flow">Data flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────┐                    ┌─────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  virtufin-tui       │                    │  virtufin-api        │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  (your laptop)      │  ◄── gRPC :5002 ──►  (cluster)          │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│                     │                    │                     │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  ┌───────────────┐  │                    │  - Gateway.* RPCs    │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  │ Textual App  │  │                    │  - State.* RPCs      │
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│  └──────┬────────┘  │                    │  - Pubsub.* RPCs     │
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│         │           │                    │                     │
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  ┌──────▼────────┐  │                    │  (talks to Dapr      │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  │ virtufin.api │  │                    │   pubsub + state     │
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  │ Python client │  │                    │   internally)        │
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  └──────┬────────┘  │                    │                     │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│         │           │                    │                     │
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  ┌──────▼────────┐  │                    └─────────────────────┘
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  │ Polling +     │  │
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  │ Subscribe      │  │
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  │ background     │  │
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│  │ workers        │  │
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  └───────────────┘  │
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>└─────────────────────┘
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    subgraph TUI["virtufin-tui (your laptop)"]
+        TA["Textual App"]
+        subgraph PC["virtufin.api Python client"]
+            T["Polling +&lt;br/&gt;Subscribe background workers"]
+        end
+        TA --&gt; PC
+    end
+
+    API["virtufin-api (cluster)&lt;br/&gt;Gateway.* RPCs&lt;br/&gt;State.* RPCs&lt;br/&gt;Pubsub.* RPCs&lt;br/&gt;(talks to Dapr pubsub + state)"]
+
+    TUI -- "gRPC :5002" --&gt; API</code></pre>
 <h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
 <h3 id="1-textual-app-srcvirtufin_tuiapppy">1. Textual App (<code>src/virtufin_tui/app.py</code>)<a class="headerlink" href="#1-textual-app-srcvirtufin_tuiapppy" title="Permanent link">&para;</a></h3>
 <p>The root <code>App</code> subclass. Holds a single <code>TuiConfig</code> and binds the global
