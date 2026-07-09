@@ -884,7 +884,7 @@ context, and pushes the <code>Dashboard</code> dispatcher. Global keybindings: <
 <code>?</code> help, <code>1/2/3</code> switch page.</p>
 <h3 id="2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy">2. Dashboard dispatcher (<code>src/virtufin_tui/screens/dashboard.py</code>)<a class="headerlink" href="#2-dashboard-dispatcher-srcvirtufin_tuiscreensdashboardpy" title="Permanent link">&para;</a></h3>
 <p>A thin <code>Screen</code> wrapper. Owns the <code>DataPump</code> (poller + subscriber) and routes
-the <code>1/2/3</code> keybindings to the matching per-page Screen. Page state is
+the <code>1/2/3/4</code> keybindings to the matching per-page Screen. Page state is
 remembered across context switches.</p>
 <h3 id="3-data-store-srcvirtufin_tuistorepy">3. Data store (<code>src/virtufin_tui/store.py</code>)<a class="headerlink" href="#3-data-store-srcvirtufin_tuistorepy" title="Permanent link">&para;</a></h3>
 <p>Three reactive containers populated by the <code>DataPump</code>:</p>
@@ -950,6 +950,11 @@ is what the pages call for CRUD (set-tag, start, stop, delete, etc.).</p>
 <td>Connections page (3)</td>
 <td><code>connections_page.py</code></td>
 <td><code>r</code> refresh, <code>Enter</code> detail, <code>a</code> action modal</td>
+</tr>
+<tr>
+<td>Scripts page (4)</td>
+<td><code>scripts_page.py</code></td>
+<td><code>r</code> run, <code>s</code> save, <code>n</code> new, arrow keys navigate</td>
 </tr>
 <tr>
 <td>Contexts picker</td>

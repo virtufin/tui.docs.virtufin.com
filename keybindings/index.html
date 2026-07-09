@@ -542,6 +542,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scripts-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contexts-picker" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -707,6 +718,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scripts-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contexts-picker" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -778,8 +800,8 @@ inline.</p>
 <td>Open the contexts picker</td>
 </tr>
 <tr>
-<td><code>1</code> / <code>2</code> / <code>3</code></td>
-<td>Focus workers / connections / events panel</td>
+<td><code>1</code> / <code>2</code> / <code>3</code> / <code>4</code></td>
+<td>Focus workers / connections / events / scripts panel</td>
 </tr>
 </tbody>
 </table>
@@ -891,6 +913,59 @@ inline.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="scripts-panel">Scripts panel<a class="headerlink" href="#scripts-panel" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>↑</code> / <code>↓</code> / <code>j</code> / <code>k</code></td>
+<td>Navigate script list</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>Run the highlighted script (subprocess, isolated)</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Save the edited script (user scripts only)</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>New user script (from template in <code>~/.config/virtufin-tui/examples/</code>)</td>
+</tr>
+<tr>
+<td><code>f7</code></td>
+<td>Select all in the editor</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code> / <code>Cmd+C</code></td>
+<td>When editor is focused: copy selection (Textual native). When output log or script list is focused: copy the entire output log to clipboard.</td>
+</tr>
+<tr>
+<td><code>Ctrl+V</code> / <code>Cmd+V</code></td>
+<td>Paste in the editor (Textual native, terminal bracketed paste)</td>
+</tr>
+<tr>
+<td><code>Ctrl+X</code> / <code>Cmd+X</code></td>
+<td>Cut selection in the editor (Textual native)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Textual's binding chain checks the focused widget first, so <code>Ctrl+C</code>
+on the editor copies a selection (native TextArea) and on the output
+log copies the full buffer (ScriptsPage Screen-level binding). The
+<code>Ctrl+Shift+C</code> variant does not work on modern terminals because the
+kitty keyboard protocol drops the <code>shift</code> modifier for printable
+characters. <code>q</code> is the global app-quit key — <code>Ctrl+C</code> does not quit,
+it copies (or shows a "Press q to quit" hint when no input widget
+is focused).</p>
+</blockquote>
 <h2 id="contexts-picker">Contexts picker<a class="headerlink" href="#contexts-picker" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
