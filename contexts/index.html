@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -705,7 +705,11 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 <tbody>
 <tr>
 <td><code>tls</code></td>
-<td>Use TLS for the gRPC channel. Recommended for any non-localhost endpoint.</td>
+<td>Use TLS for the gRPC channel, verified against the system CA roots. Required for endpoints behind a TLS-terminating ingress; recommended for any non-localhost endpoint.</td>
+</tr>
+<tr>
+<td><code>api_key</code></td>
+<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config. The file's <code>0600</code> mode protects the stored key.</td>
 </tr>
 <tr>
 <td><code>default_worker_topic</code></td>
@@ -781,7 +785,7 @@ and macOS (XDG default).</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.follow", "content.code.copy", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
