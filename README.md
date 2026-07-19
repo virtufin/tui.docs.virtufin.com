@@ -23,6 +23,7 @@ virtufin-tui
 
 First run with no config: the TUI opens the contexts picker and prompts you to add
 a `virtufin-api` endpoint. Subsequent runs read `~/.config/virtufin-tui/contexts.toml`.
+See [`contexts.toml.example`](contexts.toml.example) for the file format.
 
 ## Features
 

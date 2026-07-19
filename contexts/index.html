@@ -712,6 +712,14 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 <td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config. The file's <code>0600</code> mode protects the stored key.</td>
 </tr>
 <tr>
+<td><code>worker_api_host</code></td>
+<td>The address a <em>worker</em> (a separate process the WorkManager spawns — e.g. the WebSocketManagerController example — not this TUI) must dial for its own callback connection to the <code>virtufin-api</code> Gateway. Defaults to <code>api_host</code> when unset. Set this when the worker runs somewhere <code>api_host</code> isn't reachable from — e.g. <code>api_host</code> is a TLS-terminating ingress address reachable only from outside the cluster, but the worker runs inside the cluster and needs a plaintext, cluster-internal address such as <code>api.virtufin.svc.cluster.local</code>.</td>
+</tr>
+<tr>
+<td><code>worker_api_port</code></td>
+<td>Port for <code>worker_api_host</code>. Defaults to <code>api_port</code> when unset.</td>
+</tr>
+<tr>
 <td><code>default_worker_topic</code></td>
 <td>If set, the events panel auto-subscribes to this topic on context start. Defaults to subscribing to the topic from the currently-highlighted row.</td>
 </tr>
