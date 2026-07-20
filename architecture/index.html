@@ -918,7 +918,7 @@ remembered across context switches.</p>
 <code>DataPump</code> survives page switches; hot context switching stops the old pump,
 re-creates the gRPC channel, and starts a fresh pump.</p>
 <h3 id="4-config-loader-srcvirtufin_tuiconfigpy">4. Config loader (<code>src/virtufin_tui/config.py</code>)<a class="headerlink" href="#4-config-loader-srcvirtufin_tuiconfigpy" title="Permanent link">&para;</a></h3>
-<p>Reads <code>contexts.toml</code> from <code>~/.config/virtufin-tui/</code> (XDG-aware via
+<p>Reads <code>contexts.toml</code> from <code>~/.config/virtufin/tui/</code> (XDG-aware via
 <code>$XDG_CONFIG_HOME</code>). Applies <code>VIRTUFIN_TUI_API_HOST</code>/<code>VIRTUFIN_TUI_API_PORT</code>/
 <code>VIRTUFIN_TUI_CONTEXT</code> env-var overrides. Returns a <code>TuiConfig</code> with the list
 of contexts and the active one.</p>
