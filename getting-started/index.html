@@ -308,6 +308,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../custom-panes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tabs &amp; custom panes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../architecture/" class="md-tabs__link">
         
   
@@ -583,6 +602,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../custom-panes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabs &amp; custom panes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../architecture/" class="md-nav__link">
         
   
@@ -714,10 +760,10 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>uv<span class="w"> </span>add<span class="w"> </span>virtufin-tui
 </code></pre></div>
 <h2 id="first-run">First run<a class="headerlink" href="#first-run" title="Permanent link">&para;</a></h2>
-<p>If no <code>~/.config/virtufin/api/contexts.toml</code> exists, the TUI opens the contexts
-picker and prompts you to add a <code>virtufin-api</code> endpoint. A copyable template
-lives at <a href="../../contexts.toml.example"><code>contexts.toml.example</code></a> in the repo
-root. Example <code>contexts.toml</code>:</p>
+<p>If no <code>~/.config/virtufin/api/contexts.toml</code> exists, the TUI prints an error
+and exits -- create the file by hand first. A copyable template lives at
+<code>contexts.toml.example</code> in the repo root.
+Example <code>contexts.toml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[[contexts]]</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;local&quot;</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">api_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span>
@@ -800,7 +846,7 @@ root. Example <code>contexts.toml</code>:</p>
 <td><code>description</code></td>
 <td>string</td>
 <td><code>""</code></td>
-<td>Shown in the contexts picker</td>
+<td>Free-form label shown in the Config page's contexts table</td>
 </tr>
 </tbody>
 </table>
@@ -827,33 +873,16 @@ root. Example <code>contexts.toml</code>:</p>
 </tr>
 </tbody>
 </table>
-<p>Config file location (XDG-aware via <code>platformdirs</code>):</p>
-<table>
-<thead>
-<tr>
-<th>OS</th>
-<th>Path</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linux</td>
-<td><code>~/.config/virtufin/api/contexts.toml</code></td>
-</tr>
-<tr>
-<td>macOS</td>
-<td><code>~/Library/Application Support/virtufin/api/contexts.toml</code></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>%APPDATA%\virtufin\api\contexts.toml</code></td>
-</tr>
-</tbody>
-</table>
+<p>Config file location: <code>$XDG_CONFIG_HOME/virtufin/api/contexts.toml</code> if
+<code>$XDG_CONFIG_HOME</code> is set, otherwise <code>~/.config/virtufin/api/contexts.toml</code>
+on every OS (there's no platform-specific path like macOS's "Application
+Support" or Windows's <code>%APPDATA%</code> -- the same <code>~/.config/...</code> layout is
+used everywhere).</p>
 <h2 id="switch-context-inside-the-tui">Switch context inside the TUI<a class="headerlink" href="#switch-context-inside-the-tui" title="Permanent link">&para;</a></h2>
-<p>Press <code>c</code> to open the contexts picker. Switching closes the current gRPC channel
-and opens new ones to the selected endpoint. The dashboard refreshes within 1
-second of the switch.</p>
+<p>Go to the Config tab (Infra → Config by default), highlight a row in the
+contexts table, and press <code>Enter</code>. Switching closes the current gRPC
+channel and opens a new one to the selected endpoint; the dashboard
+refreshes within 1 second.</p>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitea.haenerconsulting.com/virtufin/virtufin-tui
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>virtufin-tui

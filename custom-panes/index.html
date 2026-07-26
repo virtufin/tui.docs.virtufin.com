@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://tui.docs.virtufin.com/contexts/">
+        <link rel="canonical" href="https://tui.docs.virtufin.com/custom-panes/">
       
       
-        <link rel="prev" href="../keybindings/">
+        <link rel="prev" href="../contexts/">
       
       
-        <link rel="next" href="../custom-panes/">
+        <link rel="next" href="../architecture/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Contexts - virtufin-tui</title>
+        <title>Tabs & custom panes - virtufin-tui</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contexts" class="md-skip">
+        <a href="#tabs-custom-panes" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contexts
+              Tabs &amp; custom panes
             
           </span>
         </div>
@@ -285,11 +285,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../contexts/" class="md-tabs__link">
         
   
   
@@ -306,9 +304,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../custom-panes/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -470,6 +470,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../contexts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -489,7 +516,7 @@
   <span class="md-ellipsis">
     
   
-    Contexts
+    Tabs &amp; custom panes
   
 
     
@@ -507,7 +534,7 @@
   <span class="md-ellipsis">
     
   
-    Contexts
+    Tabs &amp; custom panes
   
 
     
@@ -533,10 +560,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#switching" class="md-nav__link">
+  <a href="#pane_order-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Switching
+        pane_order schema
       
     </span>
   </a>
@@ -544,10 +571,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programmatic-override" class="md-nav__link">
+  <a href="#editing-pane_order-from-the-tui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programmatic override
+        Editing pane_order from the TUI
       
     </span>
   </a>
@@ -555,24 +582,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#per-context-settings" class="md-nav__link">
+  <a href="#custom-panes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Per-context settings
+        Custom panes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom panes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-form-pane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script + form pane
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#live-widget-pane" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Persistence
+        Live widget pane
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -580,33 +624,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../custom-panes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tabs &amp; custom panes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -665,10 +682,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#switching" class="md-nav__link">
+  <a href="#pane_order-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Switching
+        pane_order schema
       
     </span>
   </a>
@@ -676,10 +693,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programmatic-override" class="md-nav__link">
+  <a href="#editing-pane_order-from-the-tui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programmatic override
+        Editing pane_order from the TUI
       
     </span>
   </a>
@@ -687,24 +704,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#per-context-settings" class="md-nav__link">
+  <a href="#custom-panes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Per-context settings
+        Custom panes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom panes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-form-pane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script + form pane
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#live-widget-pane" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Persistence
+        Live widget pane
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -725,60 +759,115 @@
 
 
 
-<h1 id="contexts">Contexts<a class="headerlink" href="#contexts" title="Permanent link">&para;</a></h1>
-<p>virtufin-tui supports multiple <code>virtufin-api</code> endpoints ("contexts") so you can
-operate against dev, staging, and prod from the same session.</p>
-<p>See <a href="../getting-started/#configuration">getting-started.md</a> for the
-<code>contexts.toml</code> schema and the XDG-aware file path.</p>
-<h2 id="switching">Switching<a class="headerlink" href="#switching" title="Permanent link">&para;</a></h2>
-<p>Go to the Config tab (Infra → Config by default). Highlight a context and
-press <code>Enter</code> to make it active. Switching closes the current gRPC channel
-and opens new ones; the dashboard refreshes within 1 second.</p>
-<h2 id="programmatic-override">Programmatic override<a class="headerlink" href="#programmatic-override" title="Permanent link">&para;</a></h2>
-<p>For one-off overrides without editing <code>contexts.toml</code>, set the env var
-<code>VIRTUFIN_TUI_CONTEXT=name</code>. The TUI starts with that context active, ignoring the
-file's <code>active_context</code> setting.</p>
-<p><code>VIRTUFIN_TUI_API_HOST</code> and <code>VIRTUFIN_TUI_API_PORT</code> override the host/port of the
-active context (useful for ad-hoc connections to a port-forwarded gRPC server).</p>
-<h2 id="per-context-settings">Per-context settings<a class="headerlink" href="#per-context-settings" title="Permanent link">&para;</a></h2>
+<h1 id="tabs-custom-panes">Tabs &amp; custom panes<a class="headerlink" href="#tabs-custom-panes" title="Permanent link">&para;</a></h1>
+<p>The dashboard's tab layout — which top-level tabs exist, and which panes
+sit under each as sub-tabs — is driven by <code>pane_order</code> in
+<code>~/.config/virtufin/tui/config.toml</code>, not hardcoded. You can reorder
+built-in panes, add your own, and add whole new top-level tabs.</p>
+<h2 id="pane_order-schema"><code>pane_order</code> schema<a class="headerlink" href="#pane_order-schema" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[[pane_order]]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;home&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Home&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;home&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">[[pane_order]]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;trading&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Trading&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;instruments&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;orderbook&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;portfolio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pnl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;risk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">[[pane_order]]</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;infra&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Infra&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;workers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;connections&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;scripts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;triggers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;events&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Each <code>[[pane_order]]</code> entry is one top-level tab: <code>id</code> (used internally),
+<code>label</code> (shown in the tab bar), and <code>panes</code> (ordered pane ids shown as
+sub-tabs, selectable with keys <code>1</code>-<code>9</code>). A tab with a single pane — like
+<code>home</code> above — renders with no sub-tab bar; that one pane is shown
+directly.</p>
+<p>Pane ids must match either a built-in page (<code>home</code>, <code>workers</code>,
+<code>connections</code>, <code>scripts</code>, <code>triggers</code>, <code>events</code>, <code>config</code>, <code>instruments</code>,
+<code>orderbook</code>, <code>portfolio</code>, <code>pnl</code>, <code>risk</code>) or the filename stem of a custom
+pane under <code>~/.config/virtufin/tui/panes/</code> (see below).</p>
+<p><strong>Important:</strong> keep the <code>[[pane_order]]</code> block <em>last</em> in <code>config.toml</code>. In
+TOML, any bare <code>key = value</code> line after an array-of-tables header belongs
+to that table, not the document root — anything you add below it would
+silently attach to the last tab entry instead of being a real top-level
+setting.</p>
+<h2 id="editing-pane_order-from-the-tui">Editing <code>pane_order</code> from the TUI<a class="headerlink" href="#editing-pane_order-from-the-tui" title="Permanent link">&para;</a></h2>
+<p>The Config page (Infra → Config, or any tab's Config sub-tab) has a
+"Tabs &amp; Panes" section below the contexts table:</p>
+<p><img alt="Config page's Tabs &amp; Panes section" src="../images/infra-config.svg" /></p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Purpose</th>
+<th>Key</th>
+<th>Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>tls</code></td>
-<td>Use TLS for the gRPC channel, verified against the system CA roots. Required for endpoints behind a TLS-terminating ingress; recommended for any non-localhost endpoint.</td>
+<td><code>ctrl+up</code> / <code>ctrl+down</code></td>
+<td>Move the highlighted pane up/down within its tab</td>
 </tr>
 <tr>
-<td><code>api_key</code></td>
-<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config. The file's <code>0600</code> mode protects the stored key.</td>
+<td><code>delete</code></td>
+<td>Remove the highlighted pane from its tab</td>
 </tr>
 <tr>
-<td><code>worker_api_host</code></td>
-<td>The address a <em>worker</em> (a separate process the WorkManager spawns — e.g. the WebSocketManagerController example — not this TUI) must dial for its own callback connection to the <code>virtufin-api</code> Gateway. Defaults to <code>api_host</code> when unset. Set this when the worker runs somewhere <code>api_host</code> isn't reachable from — e.g. <code>api_host</code> is a TLS-terminating ingress address reachable only from outside the cluster, but the worker runs inside the cluster and needs a plaintext, cluster-internal address such as <code>api.virtufin.svc.cluster.local</code>.</td>
+<td><code>i</code></td>
+<td>Insert the pane highlighted in "Available custom panes" after the highlighted row in "Tabs &amp; Panes"</td>
 </tr>
 <tr>
-<td><code>worker_api_port</code></td>
-<td>Port for <code>worker_api_host</code>. Defaults to <code>api_port</code> when unset.</td>
-</tr>
-<tr>
-<td><code>default_worker_topic</code></td>
-<td>If set, the events panel auto-subscribes to this topic on context start. Defaults to subscribing to the topic from the currently-highlighted row.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>Free-form label shown in the picker (e.g. "Production — last deploy 2026-07-05").</td>
+<td><code>x</code></td>
+<td>Add a brand-new top-level tab (prompts for id + label)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">&para;</a></h2>
-<p>Switching context from the Config page writes back to <code>contexts.toml</code>
-immediately -- the <code>active_context</code> line is updated in place, preserving
-the rest of the file. The file is created with mode <code>0600</code>.</p>
+<p>Reordering, removing, and inserting take effect immediately — the next
+time you switch into that tab, its sub-tab bar is rebuilt from the
+current config. <strong>Adding a new top-level tab needs a restart</strong> to appear
+in the tab bar (the top-level tab bar itself is only built once, at
+startup).</p>
+<h2 id="custom-panes">Custom panes<a class="headerlink" href="#custom-panes" title="Permanent link">&para;</a></h2>
+<p>Drop files into <code>~/.config/virtufin/tui/panes/</code> (created automatically).
+Two kinds, distinguished by what's alongside the <code>.py</code> file:</p>
+<h3 id="script-form-pane">Script + form pane<a class="headerlink" href="#script-form-pane" title="Permanent link">&para;</a></h3>
+<p>A <code>&lt;name&gt;.py</code> with a sibling <code>&lt;name&gt;.form.json</code> — the same convention
+already used by the Scripts page's built-in examples (see
+<code>create_worker.py</code> / <code>create_worker.form.json</code> there for a full
+reference). The form's fields are collected and passed to your script as
+JSON via the <code>VIRTUFIN_TUI_FORM_DATA</code> env var when submitted; the script
+also receives the same <code>VIRTUFIN_TUI_API_{HOST,PORT,TLS,KEY}</code> /
+<code>VIRTUFIN_TUI_WORKER_API_{HOST,PORT}</code> env vars every script gets. Output
+streams to a log below the form. This is a one-shot action pane, not a
+continuously updating one. The form schema itself is defined by
+<code>textual_jsonforms</code> -- see <code>docs/textual-jsonforms-spec.md</code> in the repo
+root for the full field-type reference.</p>
+<h3 id="live-widget-pane">Live widget pane<a class="headerlink" href="#live-widget-pane" title="Permanent link">&para;</a></h3>
+<p>A <code>&lt;name&gt;.py</code> with <strong>no</strong> sibling <code>.form.json</code>, defining a module-level
+class named exactly <code>Pane</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">textual.widget</span><span class="w"> </span><span class="kn">import</span> <span class="n">Widget</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Pane</span><span class="p">(</span><span class="n">Widget</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stores</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_stores</span> <span class="o">=</span> <span class="n">stores</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">compose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="o">...</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">on_mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">set_interval</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
+</code></pre></div>
+<p><code>Pane</code> must subclass <code>textual.widget.Widget</code> and follow the same
+<code>__init__(self, stores, client, **kwargs)</code> convention as built-in pages
+(<code>stores</code> is the dashboard's <code>DataPump</code>, <code>client</code> is the active
+<code>TuiClient</code>). This gives you a genuine persistent page — live polling,
+subscriptions, whatever you need — not just a form submission.</p>
+<p>A file matching neither pattern (no form, and no <code>Pane</code> class) is skipped
+and logged as a warning; it won't crash the TUI.</p>
 
 
 
