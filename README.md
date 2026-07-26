@@ -12,14 +12,25 @@ See the normative contract in
 
 ## Quick start
 
+`virtufin-tui` is published to a private index, not public PyPI --
+authenticate first (a Gitea personal access token with `read:packages`
+scope works as the password):
+
 ```bash
+export VIRTUFIN_PACKAGES_USER=<your-gitea-username>
+export VIRTUFIN_PACKAGES_TOKEN=<your-gitea-token>
+INDEX="https://${VIRTUFIN_PACKAGES_USER}:${VIRTUFIN_PACKAGES_TOKEN}@pypi.haenerconsulting.com/api/packages/virtufin/pypi/simple/"
+
 # Run without installation
-uvx --from virtufin-tui virtufin-tui
+uvx --index "$INDEX" --from virtufin-tui virtufin-tui
 
 # Or install and run
-pip install virtufin-tui
+pip install virtufin-tui --index-url "$INDEX" --extra-index-url https://pypi.org/simple
 virtufin-tui
 ```
+
+See [Installation](docs/v1/getting-started.md#install) for the persistent
+(non-inline-credential) setup.
 
 First run with no config: the TUI prints an error and exits -- create
 `~/.config/virtufin/api/contexts.toml` by hand (see
