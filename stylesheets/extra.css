@@ -1,0 +1,6 @@
+/* Custom styles for virtufin-tui documentation */
+
+/* Footer copyright — expand to full width so build date sits flush right */
+.md-copyright {
+  flex: 1;
+}

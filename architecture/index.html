@@ -51,6 +51,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -945,12 +947,12 @@ mounted at a time -- switching tabs unmounts the current one and mounts
 the next.</p>
 <p>The tab/sub-tab structure is <strong>not hardcoded</strong>: it's read from
 <code>pane_order</code> in <code>config.toml</code> at runtime (see
-<a href="../custom-panes/">custom-panes.md</a>). <code>right</code>/<code>left</code> cycle top-level tabs;
+<a href="../custom-panes/">Custom panes</a>). <code>right</code>/<code>left</code> cycle top-level tabs;
 <code>1</code>-<code>9</code> pick a sub-tab by position within the active tab.</p>
 <p>Dashboard also routes a small set of generic keys (<code>r</code>, <code>a</code>, <code>d</code>, <code>enter</code>,
 <code>space</code>, <code>/</code>, <code>c</code>, <code>s</code>, <code>n</code>, <code>w</code>, <code>t</code>) to whichever <code>action_*</code> method the
 currently-mounted pane happens to implement (see
-<a href="../keybindings/">keybindings.md</a> for the full per-pane mapping) --
+<a href="../keybindings/">Keybindings</a> for the full per-pane mapping) --
 <code>check_action</code> hides a key from the footer entirely if the current pane
 doesn't implement the corresponding method.</p>
 <h3 id="3-data-store-srcvirtufin_tuistorepy">3. Data store (<code>src/virtufin_tui/store.py</code>)<a class="headerlink" href="#3-data-store-srcvirtufin_tuistorepy" title="Permanent link">&para;</a></h3>
@@ -1002,7 +1004,7 @@ the scaffolding for future trading-specific views.</p>
 <ul>
 <li><strong><code>virtufin/api/contexts.toml</code></strong> -- the list of <code>virtufin-api</code> endpoints
   ("contexts": host/port/TLS/API key/etc.) and which one is active. See
-  <a href="../contexts/">contexts.md</a>.</li>
+  <a href="../contexts/">Contexts</a>.</li>
 <li><strong><code>virtufin/tui/config.toml</code></strong> -- everything else: theme, event-topic
   presets, the tab/pane layout (<code>pane_order</code>), and display toggles. Loaded
   into a <code>TuiUserConfig</code> dataclass and round-tripped through <code>tomlkit</code> on
@@ -1050,7 +1052,7 @@ the action modal, and the service browser are pushed as modals/screens on
 top of the active pane.</p>
 <p>Beyond the built-in pages, users can add their own panes and even new
 top-level tabs without touching the source tree -- see
-<a href="../custom-panes/">custom-panes.md</a>.</p>
+<a href="../custom-panes/">Custom panes</a>.</p>
 <h2 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">&para;</a></h2>
 <ol>
 <li><code>virtufin-tui</code> is invoked (from <code>uvx</code>, <code>pip install</code>, or local).</li>
@@ -1059,7 +1061,7 @@ top-level tabs without touching the source tree -- see
 <li><code>config.load_config()</code> reads <code>contexts.toml</code> and applies env-var
    overrides (<code>VIRTUFIN_TUI_API_HOST</code>/<code>_PORT</code>/<code>VIRTUFIN_TUI_CONTEXT</code>).</li>
 <li>If no contexts are configured, the TUI prints an error and exits --
-   create <code>contexts.toml</code> by hand (see <a href="../contexts/">contexts.md</a>).</li>
+   create <code>contexts.toml</code> by hand (see <a href="../contexts/">Contexts</a>).</li>
 <li>Otherwise, <code>VirtufinTuiApp.on_mount()</code> builds a <code>TuiClient</code>, connects,
    and pushes the <code>Dashboard</code> screen, which starts the <code>DataPump</code> and
    mounts the first tab's first pane after a short delay.</li>
@@ -1097,24 +1099,11 @@ top-level tabs without touching the source tree -- see
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T11:39:22Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T11:46:43Z</span>
 </div>
 
     </div>
   
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-tui" target="_blank" rel="noopener" title="Source" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
-    </a>
   
 </div>
       

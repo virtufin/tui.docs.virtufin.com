@@ -35,7 +35,7 @@ See [Installation](docs/v1/getting-started.md#install) for the persistent
 First run with no config: the TUI prints an error and exits -- create
 `~/.config/virtufin/api/contexts.toml` by hand (see
 [`contexts.toml.example`](contexts.toml.example) for the file format, and
-[docs/v1/contexts.md](docs/v1/contexts.md) for the full schema).
+[Contexts](docs/v1/contexts.md) for the full schema).
 
 ## Features
 
