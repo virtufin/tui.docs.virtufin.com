@@ -897,9 +897,11 @@ the index URL:</p>
 etc.) still resolve from <code>pypi.org</code> as usual -- the private index is
 additive, not a replacement for it.</p>
 <h2 id="first-run">First run<a class="headerlink" href="#first-run" title="Permanent link">&para;</a></h2>
-<p>If no <code>~/.config/virtufin/api/contexts.toml</code> exists, the TUI prints an error
-and exits -- create the file by hand first. A copyable template lives at
-<code>contexts.toml.example</code> in the repo root.
+<p>On first run, if <code>~/.config/virtufin/api/contexts.toml</code> (or
+<code>~/.config/virtufin/tui/config.toml</code>) doesn't exist yet, it's seeded from the
+shipped defaults (a single <code>local</code> context pointing at <code>localhost:5002</code>) --
+edit the copy under <code>~/.config</code> to add other environments. A fuller template
+lives at <code>contexts.toml.example</code> in the repo root.
 Example <code>contexts.toml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[[contexts]]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;local&quot;</span>
@@ -1061,7 +1063,7 @@ refreshes within 1 second.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T11:46:43Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-27T13:23:59Z</span>
 </div>
 
     </div>
