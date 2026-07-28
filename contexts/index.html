@@ -784,8 +784,8 @@ press <code>Enter</code> to make it active. Switching closes the current gRPC ch
 and opens new ones; the dashboard refreshes within 1 second.</p>
 <h2 id="programmatic-override">Programmatic override<a class="headerlink" href="#programmatic-override" title="Permanent link">&para;</a></h2>
 <p>For one-off overrides without editing <code>contexts.toml</code>, set the env var
-<code>VIRTUFIN_TUI_CONTEXT=name</code>. The TUI starts with that context active, ignoring the
-file's <code>active_context</code> setting.</p>
+<code>VIRTUFIN_TUI_CONTEXT=name</code>. The TUI starts with that context active, ignoring
+the stored active-context state (see Persistence below).</p>
 <p><code>VIRTUFIN_TUI_API_HOST</code> and <code>VIRTUFIN_TUI_API_PORT</code> override the host/port of the
 active context (useful for ad-hoc connections to a port-forwarded gRPC server).</p>
 <h2 id="per-context-settings">Per-context settings<a class="headerlink" href="#per-context-settings" title="Permanent link">&para;</a></h2>
@@ -824,9 +824,12 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 </tbody>
 </table>
 <h2 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">&para;</a></h2>
-<p>Switching context from the Config page writes back to <code>contexts.toml</code>
-immediately -- the <code>active_context</code> line is updated in place, preserving
-the rest of the file. The file is created with mode <code>0600</code>.</p>
+<p><code>contexts.toml</code> holds only the context <em>definitions</em> -- which context is
+currently active is state, not config, and lives separately at
+<code>~/.local/state/virtufin/api/state.toml</code> (<code>$XDG_STATE_HOME</code>-aware, same
+convention as <code>$XDG_CONFIG_HOME</code> for <code>contexts.toml</code>). Switching context
+from the Config page writes <code>active_context = "&lt;name&gt;"</code> there immediately.
+The file is created with mode <code>0600</code>.</p>
 
 
 
@@ -858,7 +861,7 @@ the rest of the file. The file is created with mode <code>0600</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-27T13:23:59Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-28T07:50:54Z</span>
 </div>
 
     </div>
