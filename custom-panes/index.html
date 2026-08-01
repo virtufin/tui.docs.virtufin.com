@@ -891,7 +891,10 @@ also receives the same <code>VIRTUFIN_TUI_API_{HOST,PORT,TLS,KEY}</code> /
 streams to a log below the form. This is a one-shot action pane, not a
 continuously updating one. The form schema itself is defined by
 <code>textual_jsonforms</code> -- see <code>docs/textual-jsonforms-spec.md</code> in the repo
-root for the full field-type reference.</p>
+root for the full field-type reference. (The same library also powers
+the Workers page's <code>n</code>/New Worker form, built dynamically from a
+worker's JSON-Schema <code>config_schema</code> rather than a hand-written
+<code>.form.json</code>.)</p>
 <h3 id="live-widget-pane">Live widget pane<a class="headerlink" href="#live-widget-pane" title="Permanent link">&para;</a></h3>
 <p>A <code>&lt;name&gt;.py</code> with <strong>no</strong> sibling <code>.form.json</code>, defining a module-level
 class named exactly <code>Pane</code>:</p>
@@ -947,7 +950,7 @@ and logged as a warning; it won't crash the TUI.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-31T05:35:33Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-01T07:59:58Z</span>
 </div>
 
     </div>
