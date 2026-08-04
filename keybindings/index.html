@@ -16,7 +16,7 @@
         <link rel="prev" href="../screenshots/">
       
       
-        <link rel="next" href="../contexts/">
+        <link rel="next" href="../ai-tab/">
       
       
         
@@ -298,6 +298,25 @@
     
   
   Keybindings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ai-tab/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI tab
 
       </a>
     </li>
@@ -599,6 +618,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#world" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -789,6 +819,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../ai-tab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI tab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../contexts/" class="md-nav__link">
         
   
@@ -933,6 +990,17 @@
   
     <nav class="md-nav" aria-label="Trading tab">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#world" class="md-nav__link">
@@ -1232,6 +1300,14 @@ the matching method.</p>
 <td><code>t</code></td>
 <td><code>action_toggle_msgtime</code></td>
 </tr>
+<tr>
+<td><code>Ctrl+L</code></td>
+<td><code>action_clear_chat</code> (AI tab only)</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td><code>action_switch_provider</code> (AI tab only)</td>
+</tr>
 </tbody>
 </table>
 <h2 id="home">Home<a class="headerlink" href="#home" title="Permanent link">&para;</a></h2>
@@ -1256,7 +1332,34 @@ all five currently share the same single binding:</p>
 </tbody>
 </table>
 <p>The <code>Config</code> sub-tab under Trading is the same page documented under
-Infra below.</p>
+Infra below. The <code>AI</code> sub-tab is documented at <a href="../ai-tab/">AI tab</a>.</p>
+<h3 id="ai">AI<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
+<p>A chat assistant that drives the control plane via tool calls. Appears under
+both Trading and Infra (just before <code>Config</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enter</code></td>
+<td>Send the typed message</td>
+</tr>
+<tr>
+<td><code>Ctrl+L</code></td>
+<td>Clear the transcript and start a fresh conversation</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>Switch the active LLM provider</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../ai-tab/">AI tab</a> for provider setup (<code>llm_providers.toml</code>,
+<code>DEEPSEEK_API_KEY</code> / <code>MINIMAX_API_KEY</code> / <code>OPENAI_API_KEY</code>).</p>
 <h3 id="world">World<a class="headerlink" href="#world" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1608,7 +1711,7 @@ the "Tabs &amp; Panes" section works, and how to write a custom pane. See
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-01T07:59:58Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-04T14:45:22Z</span>
 </div>
 
     </div>
