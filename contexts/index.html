@@ -849,7 +849,7 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 </tr>
 <tr>
 <td><code>api_key</code></td>
-<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config. The file's <code>0600</code> mode protects the stored key.</td>
+<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config — an admin runs <code>python scripts/provision_api_key.py &lt;username&gt;</code> in the <code>virtufin-api</code> repo to generate one and give it to you out-of-band. The file's <code>0600</code> mode protects the stored key.</td>
 </tr>
 <tr>
 <td><code>worker_api_host</code></td>
@@ -907,7 +907,7 @@ The file is created with mode <code>0600</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-07T15:21:41Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-14T11:11:15Z</span>
 </div>
 
     </div>
