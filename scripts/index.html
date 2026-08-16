@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://tui.docs.virtufin.com/custom-panes/">
+        <link rel="canonical" href="https://tui.docs.virtufin.com/scripts/">
       
       
-        <link rel="prev" href="../scripts/">
+        <link rel="prev" href="../contexts/">
       
       
-        <link rel="next" href="../architecture/">
+        <link rel="next" href="../custom-panes/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Tabs & custom panes - virtufin-tui</title>
+        <title>Scripts - virtufin-tui</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tabs-custom-panes" class="md-skip">
+        <a href="#scripts" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tabs &amp; custom panes
+              Scripts
             
           </span>
         </div>
@@ -344,9 +344,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../scripts/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -363,11 +365,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../custom-panes/" class="md-tabs__link">
         
   
   
@@ -610,33 +610,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -656,7 +629,7 @@
   <span class="md-ellipsis">
     
   
-    Tabs &amp; custom panes
+    Scripts
   
 
     
@@ -674,7 +647,7 @@
   <span class="md-ellipsis">
     
   
-    Tabs &amp; custom panes
+    Scripts
   
 
     
@@ -700,10 +673,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pane_order-schema" class="md-nav__link">
+  <a href="#built-in-vs-user-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pane_order schema
+        Built-in vs. user scripts
       
     </span>
   </a>
@@ -711,10 +684,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#editing-pane_order-from-the-tui" class="md-nav__link">
+  <a href="#the-env-var-contract" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Editing pane_order from the TUI
+        The env-var contract
       
     </span>
   </a>
@@ -722,41 +695,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-panes" class="md-nav__link">
+  <a href="#writing-a-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom panes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Custom panes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#script-form-pane" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Script + form pane
+        Writing a script
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#live-widget-pane" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#script-form-pairs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Live widget pane
+        Script + form pairs
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-startup-scripts-init_scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic startup scripts (init_scripts)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -764,6 +731,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-panes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabs &amp; custom panes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -822,10 +816,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pane_order-schema" class="md-nav__link">
+  <a href="#built-in-vs-user-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pane_order schema
+        Built-in vs. user scripts
       
     </span>
   </a>
@@ -833,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#editing-pane_order-from-the-tui" class="md-nav__link">
+  <a href="#the-env-var-contract" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Editing pane_order from the TUI
+        The env-var contract
       
     </span>
   </a>
@@ -844,41 +838,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-panes" class="md-nav__link">
+  <a href="#writing-a-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom panes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Custom panes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#script-form-pane" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Script + form pane
+        Writing a script
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#live-widget-pane" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#script-form-pairs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Live widget pane
+        Script + form pairs
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-startup-scripts-init_scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic startup scripts (init_scripts)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -899,120 +887,139 @@
 
 
 
-<h1 id="tabs-custom-panes">Tabs &amp; custom panes<a class="headerlink" href="#tabs-custom-panes" title="Permanent link">&para;</a></h1>
-<p>The dashboard's tab layout — which top-level tabs exist, and which panes
-sit under each as sub-tabs — is driven by <code>pane_order</code> in
-<code>~/.config/virtufin/tui/config.toml</code>, not hardcoded. You can reorder
-built-in panes, add your own, and add whole new top-level tabs.</p>
-<h2 id="pane_order-schema"><code>pane_order</code> schema<a class="headerlink" href="#pane_order-schema" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[[pane_order]]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;home&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Home&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;home&quot;</span><span class="p">]</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">[[pane_order]]</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;trading&quot;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Trading&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;instruments&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;orderbook&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;portfolio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pnl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;risk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">[[pane_order]]</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;infra&quot;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Infra&quot;</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">panes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;workers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;connections&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;scripts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;triggers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;events&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
-</code></pre></div>
-<p>Each <code>[[pane_order]]</code> entry is one top-level tab: <code>id</code> (used internally),
-<code>label</code> (shown in the tab bar), and <code>panes</code> (ordered pane ids shown as
-sub-tabs, selectable with keys <code>1</code>-<code>9</code>). A tab with a single pane — like
-<code>home</code> above — renders with no sub-tab bar; that one pane is shown
-directly.</p>
-<p>Pane ids must match either a built-in page (<code>home</code>, <code>workers</code>,
-<code>connections</code>, <code>scripts</code>, <code>triggers</code>, <code>events</code>, <code>config</code>, <code>instruments</code>,
-<code>orderbook</code>, <code>portfolio</code>, <code>pnl</code>, <code>risk</code>) or the filename stem of a custom
-pane under <code>~/.config/virtufin/tui/panes/</code> (see below).</p>
-<p><strong>Important:</strong> keep the <code>[[pane_order]]</code> block <em>last</em> in <code>config.toml</code>. In
-TOML, any bare <code>key = value</code> line after an array-of-tables header belongs
-to that table, not the document root — anything you add below it would
-silently attach to the last tab entry instead of being a real top-level
-setting.</p>
-<h2 id="editing-pane_order-from-the-tui">Editing <code>pane_order</code> from the TUI<a class="headerlink" href="#editing-pane_order-from-the-tui" title="Permanent link">&para;</a></h2>
-<p>The Config page (Infra → Config, or any tab's Config sub-tab) has a
-"Tabs &amp; Panes" section below the contexts table:</p>
-<p><img alt="Config page's Tabs &amp; Panes section" src="../images/infra-config.svg" /></p>
+<h1 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h1>
+<p>The Scripts pane (Infra → Scripts) is a built-in Python script runner: browse,
+edit, and execute short scripts against the currently active API context,
+right from the TUI. It's also the same convention used by
+<a href="../custom-panes/#script-form-pane">custom panes</a> and by <code>init_scripts</code>
+(below) — one script format, three ways to trigger it.</p>
+<p><img alt="Scripts" src="../images/infra-scripts.svg" /></p>
+<h2 id="built-in-vs-user-scripts">Built-in vs. user scripts<a class="headerlink" href="#built-in-vs-user-scripts" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Action</th>
+<th>Kind</th>
+<th>Location</th>
+<th>Editable?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ctrl+up</code> / <code>ctrl+down</code></td>
-<td>Move the highlighted pane up/down within its tab</td>
+<td>Built-in</td>
+<td>shipped with virtufin-tui (<code>examples/</code> in the package)</td>
+<td>No — read-only in the editor</td>
 </tr>
 <tr>
-<td><code>delete</code></td>
-<td>Remove the highlighted pane from its tab</td>
-</tr>
-<tr>
-<td><code>i</code></td>
-<td>Insert the pane highlighted in "Available custom panes" after the highlighted row in "Tabs &amp; Panes"</td>
-</tr>
-<tr>
-<td><code>x</code></td>
-<td>Add a brand-new top-level tab (prompts for id + label)</td>
+<td>User</td>
+<td><code>~/.config/virtufin/tui/examples/</code></td>
+<td>Yes</td>
 </tr>
 </tbody>
 </table>
-<p>Reordering, removing, and inserting take effect immediately — the next
-time you switch into that tab, its sub-tab bar is rebuilt from the
-current config. <strong>Adding a new top-level tab needs a restart</strong> to appear
-in the tab bar (the top-level tab bar itself is only built once, at
-startup).</p>
-<h2 id="custom-panes">Custom panes<a class="headerlink" href="#custom-panes" title="Permanent link">&para;</a></h2>
-<p>Drop files into <code>~/.config/virtufin/tui/panes/</code> (created automatically).
-Two kinds, distinguished by what's alongside the <code>.py</code> file:</p>
-<h3 id="script-form-pane">Script + form pane<a class="headerlink" href="#script-form-pane" title="Permanent link">&para;</a></h3>
-<p>A <code>&lt;name&gt;.py</code> with a sibling <code>&lt;name&gt;.form.json</code> — the same convention
-already used by the Scripts page's built-in examples (see
-<code>create_worker.py</code> / <code>create_worker.form.json</code> there for a full
-reference). The form's fields are collected and passed to your script as
-JSON via the <code>VIRTUFIN_TUI_FORM_DATA</code> env var when submitted; the script
-also receives the same <code>VIRTUFIN_TUI_API_{HOST,PORT,TLS,KEY}</code> /
-<code>VIRTUFIN_TUI_WORKER_API_{HOST,PORT}</code> env vars every script gets — see
-<a href="../scripts/#the-env-var-contract">Scripts → The env-var contract</a> for the
-full table and who sets these. Output
-streams to a log below the form. This is a one-shot action pane, not a
-continuously updating one. The form schema itself is defined by
-<code>textual_jsonforms</code> -- see <code>docs/textual-jsonforms-spec.md</code> in the repo
-root for the full field-type reference. (The same library also powers
-the Workers page's <code>n</code>/New Worker form, built dynamically from a
-worker's JSON-Schema <code>config_schema</code> rather than a hand-written
-<code>.form.json</code>.)</p>
-<h3 id="live-widget-pane">Live widget pane<a class="headerlink" href="#live-widget-pane" title="Permanent link">&para;</a></h3>
-<p>A <code>&lt;name&gt;.py</code> with <strong>no</strong> sibling <code>.form.json</code>, defining a module-level
-class named exactly <code>Pane</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">textual.widget</span><span class="w"> </span><span class="kn">import</span> <span class="n">Widget</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Pane</span><span class="p">(</span><span class="n">Widget</span><span class="p">):</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stores</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_stores</span> <span class="o">=</span> <span class="n">stores</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">compose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="o">...</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">on_mount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">set_interval</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
+<p>Both show up in the same list, built-ins first. Press <code>n</code> to create a new
+user script (seeded from the built-in template, see below); press <code>s</code> to
+save edits to a user script. See <a href="../keybindings/#scripts">Keybindings → Scripts</a>
+for the full key reference.</p>
+<h2 id="the-env-var-contract">The env-var contract<a class="headerlink" href="#the-env-var-contract" title="Permanent link">&para;</a></h2>
+<p>Every script — built-in, user, or a custom pane's <code>.py</code> — is run as a plain
+<code>python3</code> subprocess and receives the active context as environment
+variables. Your script doesn't set these or read them from a config file
+itself; whatever ran the script (the Scripts pane, a custom pane, or
+<code>init_scripts</code> at startup) sets them right before spawning the subprocess:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VIRTUFIN_TUI_API_HOST</code></td>
+<td>virtufin-api host (default <code>localhost</code>)</td>
+</tr>
+<tr>
+<td><code>VIRTUFIN_TUI_API_PORT</code></td>
+<td>virtufin-api gRPC port (default <code>5002</code>)</td>
+</tr>
+<tr>
+<td><code>VIRTUFIN_TUI_API_TLS</code></td>
+<td><code>"true"</code>/<code>"false"</code> — TLS for the above</td>
+</tr>
+<tr>
+<td><code>VIRTUFIN_TUI_API_KEY</code></td>
+<td><code>x-api-key</code>, if the active context uses key auth (empty string otherwise)</td>
+</tr>
+<tr>
+<td><code>VIRTUFIN_TUI_WORKER_API_HOST</code> / <code>VIRTUFIN_TUI_WORKER_API_PORT</code></td>
+<td>virtufin-workmanager's worker-facing API, for scripts that talk to it directly</td>
+</tr>
+<tr>
+<td><code>VIRTUFIN_TUI_FORM_DATA</code></td>
+<td>JSON dict of submitted form fields — only set when the script has a paired <code>.form.json</code> (see below)</td>
+</tr>
+</tbody>
+</table>
+<p>This is the same mechanism regardless of trigger: <code>screens/_script_runner.py</code>'s
+<code>run_script_subprocess</code> builds the env and streams output back to a log,
+whether that log is the Scripts pane's output panel, a custom pane's, or (for
+<code>init_scripts</code>) the app's own <code>tui.log</code>.</p>
+<h2 id="writing-a-script">Writing a script<a class="headerlink" href="#writing-a-script" title="Permanent link">&para;</a></h2>
+<p>New user scripts (<code>n</code>) start from the built-in template, which shows the
+contract above in comments and demonstrates the reflection-based RPC helpers
+in <code>_rpc.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">api_client</span><span class="p">,</span> <span class="n">invoke</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">api_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">api</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">invoke</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s2">&quot;workmanager&quot;</span><span class="p">,</span> <span class="s2">&quot;ListWorkers&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Workers: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;workers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><code>Pane</code> must subclass <code>textual.widget.Widget</code> and follow the same
-<code>__init__(self, stores, client, **kwargs)</code> convention as built-in pages
-(<code>stores</code> is the dashboard's <code>DataPump</code>, <code>client</code> is the active
-<code>TuiClient</code>). This gives you a genuine persistent page — live polling,
-subscriptions, whatever you need — not just a form submission.</p>
-<p>A file matching neither pattern (no form, and no <code>Pane</code> class) is skipped
-and logged as a warning; it won't crash the TUI.</p>
+<p><code>api_client()</code> builds a client from the <code>VIRTUFIN_TUI_API_*</code> env vars above;
+<code>invoke()</code>/<code>invoke_no_response()</code> call any virtufin-api RPC by service/method
+name via gRPC reflection, so you don't need generated stubs for a one-off
+script. A script can also skip <code>_rpc.py</code> and use <code>virtufin.api.ApiClient</code>
+directly (construct it from the same env vars) if it only needs a couple of
+well-known RPCs — see <code>system_startdate.py</code> under <strong>Automatic startup
+scripts</strong> below for an example of that lighter-weight style.</p>
+<h2 id="script-form-pairs">Script + form pairs<a class="headerlink" href="#script-form-pairs" title="Permanent link">&para;</a></h2>
+<p>Drop a <code>&lt;name&gt;.form.json</code> next to <code>&lt;name&gt;.py</code> (same stem) and the Scripts
+pane renders a declarative form (via <code>textual_jsonforms</code>) instead of jumping
+straight to running the script — press <code>e</code> to toggle between the form and
+the code editor. Submitting the form runs the script with the field values
+passed as JSON via <code>VIRTUFIN_TUI_FORM_DATA</code>. See <code>create_worker.py</code> /
+<code>create_worker.form.json</code> in <code>examples/</code> for a full reference, and
+<a href="../custom-panes/#script-form-pane">Custom panes → Script + form pane</a> for
+the same convention embedded as its own pane instead of run from the Scripts
+list. The form schema itself is defined by <code>textual_jsonforms</code> — see
+<code>docs/textual-jsonforms-spec.md</code> in the repo root for the field-type
+reference.</p>
+<h2 id="automatic-startup-scripts-init_scripts">Automatic startup scripts (<code>init_scripts</code>)<a class="headerlink" href="#automatic-startup-scripts-init_scripts" title="Permanent link">&para;</a></h2>
+<p><code>init_scripts</code> in <code>~/.config/virtufin/tui/config.toml</code> names scripts to run
+once, automatically, shortly after the TUI connects — no keypress needed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">init_scripts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;system_startdate.py&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Each entry is a bare filename resolved against
+<strong><code>~/.config/virtufin/tui/scripts/</code></strong> — a separate directory from the
+Scripts pane's <code>~/.config/virtufin/tui/examples/</code>. The distinction is
+deliberate: <code>examples/</code> holds scripts you browse and run on demand from the
+Scripts pane; <code>scripts/</code> holds scripts meant to run unattended, once per
+launch, with nothing to review or click first.</p>
+<p>Behavior:</p>
+<ul>
+<li>Scripts run in the order listed, each via the same <code>run_script_subprocess</code>
+  used everywhere else — same env-var contract as above (<code>VIRTUFIN_TUI_FORM_DATA</code>
+  is never set, since there's no form).</li>
+<li>They run <em>after</em> the dashboard is already shown (fire-and-forget), so a
+  slow or hung init script never delays startup.</li>
+<li>A missing file is logged to <code>tui.log</code> and skipped — not fatal.</li>
+<li>Output goes to <code>tui.log</code>, not a visible pane (there's no pane to show it
+  in yet at that point in startup).</li>
+</ul>
+<p>The shipped example, <code>system_startdate.py</code>, writes a <code>system.startdate</code>
+state entry (visible on the States pane) with the current UTC time on every
+launch — a minimal template for "run something once per session" init
+scripts.</p>
 
 
 
