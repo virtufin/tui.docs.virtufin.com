@@ -1058,8 +1058,8 @@ Example <code>contexts.toml</code>:</p>
 <tr>
 <td><code>api_key</code></td>
 <td>string</td>
-<td>unset</td>
-<td>Sent as <code>x-api-key</code> metadata on every call; required when the endpoint enforces API-key auth</td>
+<td>unset (falls back to <code>VIRTUFIN_API_KEY</code> env var)</td>
+<td>Sent as <code>x-api-key</code> metadata on every call; required when the endpoint enforces API-key auth. See <a href="../contexts/#per-context-settings">Contexts</a> for the env-var fallback and error reporting.</td>
 </tr>
 <tr>
 <td><code>worker_api_host</code></td>
@@ -1167,7 +1167,7 @@ refreshes within 1 second.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-18T09:29:47Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-25T10:19:10Z</span>
 </div>
 
     </div>

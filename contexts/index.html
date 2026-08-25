@@ -679,6 +679,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#connection-status-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection status &amp; errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#persistence" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -838,6 +849,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#connection-status-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection status &amp; errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#persistence" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -895,7 +917,7 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 </tr>
 <tr>
 <td><code>api_key</code></td>
-<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config — an admin runs <code>python scripts/provision_api_key.py &lt;username&gt;</code> in the <code>virtufin-api</code> repo to generate one and give it to you out-of-band. The file's <code>0600</code> mode protects the stored key.</td>
+<td>Sent as <code>x-api-key</code> metadata on every call. Required when the endpoint enforces API-key auth (the cluster ingress does); keys are provisioned per user in the API's <code>ApiAuth:Keys</code> config — an admin runs <code>python scripts/provision_api_key.py &lt;username&gt;</code> in the <code>virtufin-api</code> repo to generate one and give it to you out-of-band. The file's <code>0600</code> mode protects the stored key. If a context has no <code>api_key</code> set, the <code>VIRTUFIN_API_KEY</code> env var is used instead (same variable name workmanager/websocketmanager read for their own outbound calls to the gateway) — useful for CI or a shared shell profile without putting the key in <code>contexts.toml</code>. An inline <code>api_key</code> always wins over the env var when both are set.</td>
 </tr>
 <tr>
 <td><code>worker_api_host</code></td>
@@ -915,6 +937,18 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 </tr>
 </tbody>
 </table>
+<h2 id="connection-status-errors">Connection status &amp; errors<a class="headerlink" href="#connection-status-errors" title="Permanent link">&para;</a></h2>
+<p>Every context row in the Config page shows a colored dot: green (reachable),
+red (not reachable), grey (not checked yet). The Home page's connection line
+shows the same dot for the active context. On a red dot, the specific reason
+is shown next to it — e.g. <code>Invalid or missing API key</code> (bad/missing
+<code>api_key</code>, distinct from other failures), <code>Server unavailable (check
+host/port/network)</code>, or the raw gRPC status for anything else. Switching
+context also validates the new connection immediately (rather than waiting
+for the next liveness check), so a bad key on the target context is reported
+right away as a toast instead of surfacing only once the periodic check
+catches up. The <code>Key</code> column shows where the effective key comes from: <code>cfg</code>
+(contexts.toml), <code>env</code> (<code>VIRTUFIN_API_KEY</code>), or <code>--</code> (none configured).</p>
 <h2 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">&para;</a></h2>
 <p><code>contexts.toml</code> holds only the context <em>definitions</em> -- which context is
 currently active is state, not config, and lives separately at
@@ -953,7 +987,7 @@ The file is created with mode <code>0600</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-18T09:29:47Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-25T10:19:10Z</span>
 </div>
 
     </div>
