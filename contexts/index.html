@@ -681,6 +681,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#no-active-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No active context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-status-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -851,6 +862,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#no-active-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No active context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-status-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -939,6 +961,15 @@ active context (useful for ad-hoc connections to a port-forwarded gRPC server).<
 </tr>
 </tbody>
 </table>
+<h2 id="no-active-context">No active context<a class="headerlink" href="#no-active-context" title="Permanent link">&para;</a></h2>
+<p>If no context is active -- for example the stored <code>active_context</code> names a
+context that no longer exists in <code>contexts.toml</code>, or the file was never
+created -- the TUI does <strong>not</strong> exit. It starts on the Config page, lists
+every configured context, and shows each one as not connected (red). No
+endpoint is probed while unbound. Highlight a context and press <code>Enter</code> to
+connect; from then on the normal lifecycle (including per-context status
+probing) resumes. With no contexts configured at all, the Config page shows
+<code>no contexts configured in &lt;path&gt;</code> and nothing to switch to.</p>
 <h2 id="connection-status-errors">Connection status &amp; errors<a class="headerlink" href="#connection-status-errors" title="Permanent link">&para;</a></h2>
 <p>Every context row in the Config page shows a colored dot: green (reachable),
 red (not reachable), grey (not checked yet). The Home page's connection line
@@ -989,7 +1020,7 @@ The file is created with mode <code>0600</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-09-12T08:43:10Z</span>
+  <span style="display:table-cell;text-align:right">2026-09-13T19:56:27Z</span>
 </div>
 
     </div>

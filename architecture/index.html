@@ -1154,11 +1154,17 @@ top-level tabs without touching the source tree -- see
    <code>--context</code> flags.</li>
 <li><code>config.load_config()</code> reads <code>contexts.toml</code> and applies env-var
    overrides (<code>VIRTUFIN_TUI_API_HOST</code>/<code>_PORT</code>/<code>VIRTUFIN_TUI_CONTEXT</code>).</li>
-<li>If no contexts are configured, the TUI prints an error and exits --
-   create <code>contexts.toml</code> by hand (see <a href="../contexts/">Contexts</a>).</li>
-<li>Otherwise, <code>VirtufinTuiApp.on_mount()</code> builds a <code>TuiClient</code>, connects,
-   and pushes the <code>Dashboard</code> screen, which starts the <code>DataPump</code> and
-   mounts the first tab's first pane after a short delay.</li>
+<li><code>VirtufinTuiApp.on_mount()</code> resolves the active context. If one
+   resolves, it builds a <code>TuiClient</code>, connects, and pushes the
+   <code>Dashboard</code> screen, which starts the <code>DataPump</code> and mounts the first
+   tab's first pane after a short delay.</li>
+<li>If <strong>no</strong> context resolves -- no <code>contexts.toml</code>, or the stored
+   active-context name isn't among the configured contexts -- the TUI
+   still launches. It pushes the same <code>Dashboard</code> in its <em>unbound</em> state
+   (no <code>TuiClient</code>, no <code>DataPump</code> polling) and lands on the Config page,
+   which lists every configured context with a red "not connected" dot.
+   Selecting one there (<code>Enter</code>) binds a real client and resumes the
+   normal connected lifecycle. See <a href="../contexts/">Contexts</a>.</li>
 <li>On <code>q</code> (quit), the TUI cancels background tasks, closes the gRPC
    channel, and exits 0.</li>
 </ol>
@@ -1193,7 +1199,7 @@ top-level tabs without touching the source tree -- see
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-09-12T08:43:10Z</span>
+  <span style="display:table-cell;text-align:right">2026-09-13T19:56:27Z</span>
 </div>
 
     </div>
